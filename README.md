@@ -17,23 +17,22 @@
 
 
 # Installation & Execution
-
-### 1. Install requirements
+1. Set interpreter of your environment to python 3.9. python 3.10 and later are incompatible with tenseal (our homomorphic encryption library)
+   
+2. Install requirements
 ```sh
 $ pip install -r requirements.txt
 ```
 
-### 2. Set the IP addresses and file_path dependencies in respective python files
+3. Set the IP addresses and file_path dependencies in respective python files
 
-### 3. Face Recognition model InceptionResnet with VGGFACE2 is a 109 MB file stored at [torch folder in Drive](https://drive.google.com/drive/folders/1jlIk2Z7BkRWWmF8duRDkaWMWesLRGGkK?usp=sharing "Go to Google Drive"). Download the *torch* folder
+4. Face Recognition model InceptionResnet with VGGFACE2 is a 109 MB file stored at [torch folder in Drive](https://drive.google.com/drive/folders/1jlIk2Z7BkRWWmF8duRDkaWMWesLRGGkK?usp=sharing "Go to Google Drive"). Download the *torch* folder
 
-### 4. It must contain *checkpoints* folder which must contain a *.pt* file of 109 MB
+5. It must contain *checkpoints* folder which must contain a *.pt* file of 109 MB
 
-### 5. Save the *torch* folder to your user account's .cache folder for running add_identity.py and module_1_1.py
+6. Save the *torch* folder to your user account's .cache folder for running add_identity.py and module_1_1.py
 
-### 6. Set interpreter of version python 3.9. python 3.10 and later are incompatible with tenseal
-
-### 7. Run module_3.1
+7. Run module_3.1
 ```sh
 $ python module_3.1.py
 ```
