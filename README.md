@@ -36,12 +36,12 @@ $ pip install -r requirements.txt
 ```sh
 $ python module_3.1.py
 ```
-### 8. Then run module_2.1 and module_2.2
+8. Then run module_2.1 and module_2.2
 ```sh
 $ python module_2.1.py
 $ python module_2.2.py
 ```
-### 9. Then run nuevolens1.py, it will call 1.1 and 1.2 itself
+9. Then run nuevolens1.py, it will call 1.1 and 1.2 itself
 ```sh
 $ python nuevolens1.py
 ```
