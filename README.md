@@ -25,20 +25,24 @@ $ pip install -r requirements.txt
 
 ### 2. Set the IP addresses and file_path dependencies in respective python files
 
-### 3. Save the *torch* folder to your user account's .cache folder for running add_identity.py and module_1_1.py
+### 3. Face Recognition model InceptionResnet with VGGFACE2 is a 109 MB file stored at [torch folder in Drive](https://drive.google.com/drive/folders/1jlIk2Z7BkRWWmF8duRDkaWMWesLRGGkK?usp=sharing "Go to Google Drive"). Download the *torch* folder
 
-### 4. Set interpreter of version python 3.9. python 3.10 and later are incompatible with tenseal
+### 4. It must contain *checkpoints* folder which must contain a *.pt* file of 109 MB
 
-### 5. Run module_3.1
+### 5. Save the *torch* folder to your user account's .cache folder for running add_identity.py and module_1_1.py
+
+### 6. Set interpreter of version python 3.9. python 3.10 and later are incompatible with tenseal
+
+### 7. Run module_3.1
 ```sh
 $ python module_3.1.py
 ```
-### 6. Then run module_2.1 and module_2.2
+### 8. Then run module_2.1 and module_2.2
 ```sh
 $ python module_2.1.py
 $ python module_2.2.py
 ```
-### 7. Then run nuevolens1.py, it will call 1.1 and 1.2 itself
+### 9. Then run nuevolens1.py, it will call 1.1 and 1.2 itself
 ```sh
 $ python nuevolens1.py
 ```
