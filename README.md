@@ -47,5 +47,5 @@ $ python module_2.2.py
 $ python nuevolens1.py
 ```
 
-Made By : [Faris,Aimen,Shehram,Hunain](mailto:fashnuevolens@gmail.com)<br>
+Made By : [FASH](mailto:fashnuevolens@gmail.com)<br>
 **Secured Surveillance, Ooooh Yeah!**
