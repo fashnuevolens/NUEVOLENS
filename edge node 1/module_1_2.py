@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
 import socket
 
-AES_KEY_PATH = r"C:\Users\pc\PycharmProjects\NUEVOLENS\256_bit_AES_key.bin"
+AES_KEY_PATH = r"path_to_256_bit_AES_key.bin"
 
 
 def load_or_generate_key():
@@ -32,7 +32,7 @@ def encrypt_frame_gcm(frame, key):
 
 
 def encrypt_and_save(aes_queue):
-    HOST = '127.0.0.1'
+    HOST = 'Ip_address_of_module_2'
     PORT = 65452
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
