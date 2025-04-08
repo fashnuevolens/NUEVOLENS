@@ -7,7 +7,7 @@ import threading
 def start_action():
     global process
     process = subprocess.Popen(
-        [r"C:\Users\pc\PycharmProjects\NUEVOLENS\root\Scripts\python.exe", "module_3.2.py"],
+        [r"path_to_project\NUEVOLENS\root\Scripts\python.exe", "module_3.2.py"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         bufsize=1,
