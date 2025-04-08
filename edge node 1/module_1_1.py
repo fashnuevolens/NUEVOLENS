@@ -5,13 +5,13 @@ import socket
 import time
 
 def facial_recognition(he_queue):
-    HOST = '127.0.0.1'
+    HOST = "Ip_address_of_module_2'
     PORT = 65432
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
     time.sleep(2)  # Wait 2 seconds before reading the file
 
-    filepu = open(r"C:\Users\pc\PycharmProjects\NUEVOLENS\public_context.tenseal", "rb")
+    filepu = open(r"path_to_public_context.tenseal", "rb")
     context = ts.context_from(filepu.read())
     filepu.close()
 
