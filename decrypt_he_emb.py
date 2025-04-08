@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 import tenseal as ts
 import pickle
 
-embs = open(r"C:\Users\pc\PycharmProjects\FYPfash2\emb.pkl", "rb")
+embs = open(r"file_path_to_HE_encrypted_facial_embeddings.pkl", "rb")
 serialized_embeddings = pickle.load(embs)  # ✅ Load all embeddings as a list
 
 # Convert all embeddings back to TenSEAL encrypted vectors
 
-file = open(r"C:\Users\pc\PycharmProjects\FYPfash2\pvt_context1.tenseal", "rb")
+file = open(r"file_path_to_private_context.tenseal", "rb")
 context = ts.context_from(file.read())
 file.close()
 
