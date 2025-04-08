@@ -61,7 +61,7 @@ $ python add_identity.py
 ```sh
 $ python decrypt_he_emb.py
 ```
-19. Run context_generator.py to geenrate public/private TenSEAL context pair
+19. Run context_generator.py to generate public/private TenSEAL context pair
 ```sh
 $ python context_generator.py
 ```
