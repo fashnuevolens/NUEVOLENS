@@ -3,12 +3,12 @@ import tenseal as ts
 import socket
 import pickle
 import time
-with open(r"C:\Users\pc\PycharmProjects\NUEVOLENS\public_context.tenseal", "rb") as filepu:
+with open(r"path_to_public_context.tenseal", "rb") as filepu:
     serialized_context_pu = filepu.read()
 context = ts.context_from(serialized_context_pu)
 
 
-HOST = '127.0.0.1'
+HOST = 'Ip_address_of_module_3'
 PORT = 65442        # Port to communicate
 
 # Create a socket
@@ -18,7 +18,7 @@ send.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1048576)
 
 print("Connected to Node 3 ")
 
-HOST = '0.0.0.0'
+HOST = 'Ip_address_of_module_2'
 PORT = 65432  # Port number
 
 # Create a socket
@@ -34,7 +34,7 @@ print("Node 2 is listening on 65432...")
 
 
 # loading the image.
-filr = open(r"C:\Users\pc\PycharmProjects\NUEVOLENS\encrypted_emebeddings.pkl","rb")
+filr = open(r"path_to_encrypted_emebeddings.pkl","rb")
 embeddings_read  = pickle.load(filr)
 filr.close()
 
@@ -62,7 +62,7 @@ def encrypted_recognition(encrypted_embedding):
 
 
 # main function to capture video and perform facial recognition in real-time.
-file_path = r"C:\Users\pc\PycharmProjects\NUEVOLENS\emb"+time.strftime("%H_%M_%S")+".pkl"
+file_path = r"file_path_to_save_encrypted_facial_embeddings_at_runtime"+time.strftime("%H_%M_%S")+".pkl"
 
 
 def recv_all(sock, size):
