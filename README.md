@@ -31,7 +31,9 @@ $ pip install -r requirements.txt
 7. Face Recognition model InceptionResnet with VGGFACE2 is a 109 MB file stored at [torch folder in Drive](https://drive.google.com/drive/folders/1jlIk2Z7BkRWWmF8duRDkaWMWesLRGGkK?usp=sharing "Go to Google Drive"). Download the *torch* folder
 8. It must contain *checkpoints* folder which must contain a *.pt* file of 109 MB
 9. Save the *torch* folder to your user account's .cache folder for running add_identity.py and module_1_1.py
-10. Run gui3_1
+10. Edit the file path of python 3.9 interpreter in both gu3_1.py and gui3_2.py
+11. The interpreter must be the same being used for the rest of project that was used to install dependencies else other interpreter will not recognize the dependencies imported and cause errors.
+12. Run gui3_1
 ```sh
 $ python gui3_1.py
 ```
@@ -50,6 +52,19 @@ $ python gui3_2.py
 ```
 14. It will automatically run module_3.2 through an interactive GUI where you will be prompted to select AES key for decryption and the files to decrypt
 15. Those files will then be decrypted
+16. Use add_identity.py to define a new encrypted dataset, just add the file path of dataset folder containing folders of identities with their names and the folders containing face images.
+17. Then run add_identity.py
+```sh
+$ python add_identity.py
+```
+18. Use decrypt_he_emb.py to decrypt HE encrypted embeddings saved at runtime and to plot them, add file path of saved he embeddings from module 2 and then run it
+```sh
+$ python decrypt_he_emb.py
+```
+19. Run context_generator.py to geenrate public/private TenSEAL context pair
+```sh
+$ python context_generator.py
+```
 
 Made By : [FASH](mailto:fashnuevolens@gmail.com)<br>
 **Secured Surveillance, Ooooh Yeah!**
