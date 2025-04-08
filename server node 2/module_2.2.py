@@ -4,15 +4,15 @@ from datetime import datetime
 import socket
 import time
 
-HOST = '0.0.0.0'
+HOST = 'Ip_address_of_module_2'
 PORT = 65452  # Port number
 
-base_directory = r"C:\Users\pc\PycharmProjects\NUEVOLENS"
+base_directory = r"Directory_to_save_encrypted_feed"
 
 rcv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 rcv.bind((HOST, PORT))
 rcv.listen()
-print("Node 2 is listening on loopback...")
+print("Node 2 is listening....")
 
 def get_current_hour_folder():
     current_hour = datetime.now().strftime('%Y-%m-%d_%H00')
