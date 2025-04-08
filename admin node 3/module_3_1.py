@@ -9,7 +9,7 @@ import tkinter as tk
 from tkinter import filedialog
 import pickle
 
-filr = open(r"C:\Users\pc\PycharmProjects\NUEVOLENS\encrypted_emebeddings.pkl","rb")
+filr = open(r"path_to_project_encrypted_emebeddings.pkl","rb")
 embeddings_read  = pickle.load(filr)
 filr.close()
 labels = []
@@ -51,9 +51,9 @@ print("Setup Complete. Starting...")
 
 
 
-HOST = '127.0.0.1'  # Loopback address for local testing
+HOST = 'IP_address_of_module_3'  
 PORT = 65442  # Port number
-# Create a socket
+
 rcv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 rcv.bind((HOST, PORT))
 rcv.listen()
@@ -64,14 +64,13 @@ last_notifications = {}
 def show_notification(title, message, condition_type):
     current_time = time.time()
 
-    # Check if the same condition type was notified within the last 10 minutes
     if (condition_type in last_notifications):
         last_time = last_notifications[condition_type]
         if condition_type == "Unknown":
-            if current_time - last_time < 60:  # 600 seconds = 10 minutes
+            if current_time - last_time < 600:  # 60 seconds = 1 minute
                 return  # Do not send notification
         else:
-            if current_time - last_time < 120:  # 600 seconds = 10 minutes
+            if current_time - last_time < 120:  # 120 seconds = 2 minutes
                 return  # Do not send notification
 
     # Send notification
@@ -87,20 +86,19 @@ def show_notification(title, message, condition_type):
 def log(event_id=1001, event_type=win32evtlog.EVENTLOG_INFORMATION_TYPE,
                          message="Secure Surveillance", source="NUEVOLENS", custom_timestamp=None):
     try:
-        # Register the source if it's not already registered
+       
         try:
             win32evtlogutil.AddSourceToRegistry(source, "Application")
         except Exception:
-            pass  # Ignore if already registered
+            pass  
 
-        # If no custom timestamp is provided, use current time
+    
         if custom_timestamp is None:
             custom_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # Format message with custom timestamp
         formatted_message = f"[{custom_timestamp}] {message}"
 
-        # Write log to Windows Event Viewer (Removed SID requirement)
+        # Write log to Windows Event Viewer 
         win32evtlogutil.ReportEvent(source, eventID= event_id, eventType=event_type, strings=[formatted_message], data=b'fash_ss' )
         print(f"Logged event {event_id} with custom timestamp: {custom_timestamp} with source {source}")
 
@@ -111,15 +109,15 @@ def log(event_id=1001, event_type=win32evtlog.EVENTLOG_INFORMATION_TYPE,
 def encrypted_recognition(enc_distances):
     person = "TBD"
     for i in range(len(labels)):
-        threshold = 0.95  # defining a threshold for facial recognition.
+        threshold = 0.95 
         encrypted_distance = ts.ckks_vector_from(contextpv,enc_distances[i])
-        decrypted_distance = encrypted_distance.decrypt()  # decrypting the result to get the distance.
+        decrypted_distance = encrypted_distance.decrypt()  
         print(f"Decrypted Euclidean distance (encrypted): {decrypted_distance}")
 
-        decrypted_distance = decrypted_distance[0] ** 0.5  # calculating the square root to get the actual distance.
+        decrypted_distance = decrypted_distance[0] ** 0.5  
         print(f"square root: {decrypted_distance}")
 
-        # checking if the distance is below the threshold for a match.
+        
         if decrypted_distance < threshold:
             person = labels[i]
             print("match")
@@ -129,7 +127,7 @@ def encrypted_recognition(enc_distances):
             person = "Unknown"
     return person
 
-# main function to capture video and perform facial recognition in real-time.
+
 def main():
     print("starting 3.1")
 
@@ -142,18 +140,17 @@ def main():
             while True:
                 enc_distances = []
 
-                # Try receiving timestamp first
+                
                 try:
                     data = conn.recv(450000)
                     if not data:
-                        raise ConnectionResetError  # If empty, assume disconnection
+                        raise ConnectionResetError  
                     timestamp = data.decode()
                     print(timestamp)
                 except (UnicodeDecodeError, ConnectionResetError, socket.error):
                     print("Client disconnected. Waiting for a new connection...")
-                    break  # Exit inner loop, wait for a new connection
+                    break 
 
-                # Try receiving encrypted distances
                 try:
                     for count in range(2):
                         data = conn.recv(450000)
