@@ -25,7 +25,7 @@ def convert_to_rgb(image):
         image = image.convert("RGB")
     return image
 
-dataset = datasets.ImageFolder(root=r"C:\Users\pc\PycharmProjects\fypfash\dataset", transform=None)
+dataset = datasets.ImageFolder(root=r"path_to_dataset_folder/directory", transform=None)
 
 
 class_embeddings = {}
@@ -79,11 +79,11 @@ for label, embeddings in class_embeddings.items():
 
 
 
-file = open(r"C:\Users\pc\PycharmProjects\FYPfash2\emebeddings.pkl","wb")
+file = open(r"file_path_for_emebeddings.pkl","wb")
 pickle.dump(reference_embeddings,file)
 file.close()
 
-with open(r"C:\Users\pc\PycharmProjects\FYPfash2\context1.tenseal", "rb") as fileu:
+with open(r"path_to_public_context.tenseal", "rb") as fileu:
     serialized_context = fileu.read()
 context = ts.context_from(serialized_context)
 
@@ -93,19 +93,7 @@ for label in reference_embeddings:
     encrypted_embs[label]=encrypted_embedding.serialize()
 print (len(encrypted_embs))
 
-filenc = open(r"C:\Users\pc\PycharmProjects\FYPfash2\enc_emebeddings.pkl","wb")
+filenc = open(r"file_path_to_encrypted_emebeddings.pkl","wb")
 pickle.dump(encrypted_embs,filenc)
 filenc.close()
 
-print(len(reference_embeddings))
-for label in reference_embeddings:
-    print(len(reference_embeddings[label]))
-
-
-filr = open(r"C:\Users\pc\PycharmProjects\FYPfash2\enc_emebeddings.pkl","rb")
-embeddings_read  = pickle.load(filr)
-filr.close()
-
-print(len(embeddings_read))
-for label in embeddings_read:
-    print(len(embeddings_read[label]))
